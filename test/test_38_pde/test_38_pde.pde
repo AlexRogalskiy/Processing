@@ -23,6 +23,7 @@ class Line {
 
 Line lineObj;
 float counter;
+float radius;
 
 void setup() {
    size(600, 600);
@@ -37,15 +38,17 @@ void setup() {
    lineObj.length = 350;
    lineObj.angle = PI / 4;
    lineObj.weight = 1;
+   radius = 50;
 }
 
 void draw() {
    counter += 0.05;
    if(counter > TWO_PI) {
-      counter = 0; 
+      counter = 0;
+      radius += 50;
    }
-   lineObj.centerX = mouseX + sin(counter) * 50; // width / 2
-   lineObj.centerY = mouseY + cos(counter) * 50; // height / 2
+   lineObj.centerX = mouseX + sin(counter) * radius; // width / 2
+   lineObj.centerY = mouseY + cos(counter) * radius; // height / 2
    lineObj.angle = counter * 2;
    lineObj.render();
 }
